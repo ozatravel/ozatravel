@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OZA Travel & Tours | LC# 5873</title>
+<meta name="description" content="OZA Travel & Tours, Lahore, Pakistan. International and domestic air tickets, Hajj and Umrah information, and tour services.">
+
+<style>
+:root {
+  --red: #d90000;
+  --black: #151515;
+  --white: #ffffff;
+  --light: #f5f5f5;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--black);
+  line-height: 1.7;
+}
+header {
+  background: var(--white);
+  border-bottom: 3px solid var(--red);
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo-placeholder {
+  width: 65px;
+  height: 65px;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--red);
+}
+.brand h2 { margin: 0; font-size: 21px; line-height: 1.2; }
+.brand small { color: var(--red); font-weight: bold; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 14px;
+}
+nav a:hover { color: var(--red); }
+button, .btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--red);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.hero {
+  min-height: 470px;
+  display: flex;
+  align-items: center;
+  padding: 65px 8%;
+  color: white;
+  background:
+    linear-gradient(90deg, #000000df, #00000050),
+    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+.hero-content { max-width: 650px; }
+.license {
+  display: inline-block;
+  padding: 5px 13px;
+  border: 1px solid var(--red);
+  border-radius: 4px;
+  background: white;
+  color: var(--red);
+  font-weight: 900;
+}
+.hero h1 {
+  font-size: clamp(35px, 6vw, 58px);
+  line-height: 1.15;
+  margin: 20px 0 12px;
+}
+.hero p { font-size: 18px; }
+section { padding: 60px 7%; }
+.section-title { text-align: center; margin-bottom: 32px; }
+.section-title h2 { font-size: 32px; margin: 0 0 8px; }
+.section-title p { color: #666; }
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  padding: 25px;
+  border: 1px solid #e5e5e5;
+  border-top: 4px solid var(--red);
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 5px 18px #0000000b;
+}
+.card .symbol { font-size: 34px; }
+.card h3 { margin: 8px 0; }
+.light { background: var(--light); }
+.about {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+.contact {
+  background: var(--black);
+  color: white;
+  text-align: center;
+}
+.contact p { overflow-wrap: anywhere; }
+footer {
+  padding: 22px;
+  text-align: center;
+  background: #080808;
+  color: white;
+  font-size: 13px;
+}
+.whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 5;
+  background: #168b55;
+  color: white;
+  padding: 12px 17px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 12px #0003;
+}
+[dir="rtl"] { font-family: Arial, sans-serif; }
+[dir="rtl"] .hero { text-align: right; }
+@media(max-width:650px) {
+  header { justify-content: center; }
+  nav { justify-content: center; }
+  .brand h2 { font-size: 18px; }
+  section { padding: 42px 5%; }
+  .hero { padding: 45px 6%; min-height: 420px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="brand">
+    <div class="logo-placeholder">OZA</div>
+    <div>
+      <h2>OZA Travel & Tours</h2>
+      <small>LC# 5873</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home" data-en="Home" data-ur="ہوم">Home</a>
+    <a href="#services" data-en="Services" data-ur="سروسز">Services</a>
+    <a href="#about" data-en="About Us" data-ur="تعارف">About Us</a>
+    <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
+  </nav>
+
+  <button id="language" type="button">اردو</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="license">LC# 5873</span>
+    <h1 data-en="Your Journey, Our Priority"
+        data-ur="آپ کا سفر، ہماری ترجیح">Your Journey, Our Priority</h1>
+    <p data-en="International & Domestic Air Tickets. Discover destinations and explore travel services with OZA."
+       data-ur="انٹرنیشنل اور ڈومیسٹک ایئر ٹکٹس۔ OZA کے ساتھ اپنی پسند کی منزلیں اور سفری سہولیات دریافت کریں۔">International & Domestic Air Tickets. Discover destinations and explore travel services with OZA.</p>
+    <a class="btn" href="#services"
+       data-en="Explore Our Services" data-ur="ہماری سروسز دیکھیں">Explore Our Services</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2 data-en="Our Services" data-ur="ہماری سروسز">Our Services</h2>
+    <p data-en="Travel assistance for your journey"
+       data-ur="آپ کے سفر کے لیے رہنمائی اور سہولت">Travel assistance for your journey</p>
+  </div>
+
+  <div class="services">
+    <article class="card">
+      <div class="symbol">✈️</div>
+      <h3 data-en="International & Domestic Tickets"
+          data-ur="انٹرنیشنل و ڈومیسٹک ٹکٹس">International & Domestic Tickets</h3>
+      <p data-en="Contact us for flight options and ticket enquiries."
+         data-ur="پروازوں اور ٹکٹوں کی معلومات کے لیے رابطہ کریں۔">Contact us for flight options and ticket enquiries.</p>
+    </article>
+
+    <article class="card">
+      <div class="symbol">🕋</div>
+      <h3 data-en="Hajj & Umrah" data-ur="حج و عمرہ">Hajj & Umrah</h3>
+      <p data-en="Ask us about available services and package details."
+         data-ur="حج و عمرہ کی سروسز اور پیکیجز کی تفصیلات معلوم کریں۔">Ask us about available services and package details.</p>
+    </article>
+
+    <article class="card">
+      <div class="symbol">🏔️</div>
+      <h3 data-en="Tour Packages" data-ur="ٹور پیکیجز">Tour Packages</h3>
+      <p data-en="Explore Kashmir, Naran, Murree and other destinations."
+         data-ur="کشمیر، ناران، مری اور دیگر مقامات کے ٹورز دریافت کریں۔">Explore Kashmir, Naran, Murree and other destinations.</p>
+    </article>
+
+    <article class="card">
+      <div class="symbol">🏨</div>
+      <h3 data-en="Hotel Assistance" data-ur="ہوٹل کی سہولت">Hotel Assistance</h3>
+      <p data-en="Contact us to enquire about accommodation options."
+         data-ur="ہوٹل اور رہائش کے آپشنز کے بارے میں رابطہ کریں۔">Contact us to enquire about accommodation options.</p>
+    </article>
+  </div>
+</section>
+
+<section class="light" id="about">
+  <div class="about">
+    <span class="license">OZA Travel & Tours | LC# 5873</span>
+    <h2 data-en="Welcome to OZA Travel & Tours"
+        data-ur="OZA Travel & Tours میں خوش آمدید">Welcome to OZA Travel & Tours</h2>
+    <p data-en="Based in Lahore, Pakistan, we help customers explore travel options and enquire about our available services."
+       data-ur="لاہور، پاکستان میں قائم OZA Travel & Tours کے ذریعے آپ سفری سہولیات اور دستیاب سروسز کے بارے میں معلومات حاصل کر سکتے ہیں۔">Based in Lahore, Pakistan, we help customers explore travel options and enquire about our available services.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2 data-en="Contact Us" data-ur="ہم سے رابطہ کریں">Contact Us</h2>
+    <p data-en="OZA Travel & Tours | LC# 5873"
+       data-ur="OZA Travel & Tours | لائسنس نمبر 5873">OZA Travel & Tours | LC# 5873</p>
+  </div>
+
+  <p><strong>Office Address</strong></p>
+  <p data-en="Al-Fatah Center, Main Saggian Road, Near Dosako Chowk, Lahore, Pakistan"
+     data-ur="الفتح سینٹر، مین سگیاں روڈ، نزد دوساکو چوک، لاہور، پاکستان">Al-Fatah Center, Main Saggian Road, Near Dosako Chowk, Lahore, Pakistan</p>
+
+  <a class="btn" href="https://wa.me/923227572590"
+     target="_blank" rel="noopener"
+     data-en="Contact on WhatsApp" data-ur="واٹس ایپ پر رابطہ کریں">Contact on WhatsApp</a>
+</section>
+</main>
+
+<footer>
+  <div>OZA Travel & Tours | LC# 5873</div>
+  <div>© <span id="year"></span> All rights reserved.</div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/923227572590"
+   target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+let lang = "en";
+const languageButton = document.getElementById("language");
+
+languageButton.addEventListener("click", function () {
+  lang = lang === "en" ? "ur" : "en";
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ur" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-en]").forEach(function (element) {
+    element.textContent = element.dataset[lang];
+  });
+
+  languageButton.textContent = lang === "en" ? "اردو" : "English";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+  
