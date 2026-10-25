@@ -198,8 +198,101 @@ footer {
   </a>
 </div>
 </section>
+<section id="packages" class="light">
+  <div class="section-title">
+    <h2>Our Travel Packages</h2>
+    <p>Choose a package or request a customized travel plan.</p>
+  </div>
 
-<section id="services">
+  <div class="services">
+    <article class="card">
+      <h3>Hajj & Umrah Packages</h3>
+      <p>Explore Umrah and Hajj travel options with hotel accommodation and transport arrangements tailored to your needs.</p>
+      <p><strong>Price:</strong> Request a Quote (PKR)</p>
+      <a class="btn"
+         href="https://wa.me/923227572590?text=Assalam-o-Alaikum%2C%20I%20want%20to%20know%20the%20price%20of%20Hajj%20or%20Umrah%20packages.">
+        Inquire on WhatsApp
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Pakistan Tour Packages</h3>
+      <p>Explore Kashmir, Naran, Kaghan, Murree and Swat with customized tour and accommodation options.</p>
+      <p><strong>Price:</strong> Request a Quote (PKR)</p>
+      <a class="btn"
+         href="https://wa.me/923227572590?text=Assalam-o-Alaikum%2C%20I%20want%20to%20know%20the%20price%20of%20Pakistan%20tour%20packages.">
+        Inquire on WhatsApp
+      </a>
+    </article>
+  </div>
+</section>
+<section id="custom-package" class="light">
+  <div class="section-title">
+    <h2>Build Your Custom Package</h2>
+    <p>Tell us your travel preferences. We will prepare a package according to your needs.</p>
+  </div>
+
+  <div class="card custom-form-card">
+    <form id="customPackageForm">
+
+      <label for="customerName">Your Name</label>
+      <input id="customerName" type="text"
+        placeholder="Enter your name" required>
+
+      <label for="packageType">Package Type</label>
+      <select id="packageType" required>
+        <option value="">Select package type</option>
+        <option value="Hajj">Hajj</option>
+        <option value="Umrah">Umrah</option>
+        <option value="Pakistan Tour">Pakistan Tour</option>
+      </select>
+
+      <label for="destination">Destination</label>
+      <input id="destination" type="text"
+        placeholder="e.g. Makkah, Madinah, Kashmir" required>
+
+      <label for="travelDate">Preferred Travel Date</label>
+      <input id="travelDate" type="date" required>
+
+      <label for="travelers">Number of Travelers</label>
+      <input id="travelers" type="number"
+        min="1" max="100" value="1" required>
+
+      <label for="hotelType">Hotel Preference</label>
+      <select id="hotelType" required>
+        <option value="">Select hotel preference</option>
+        <option value="Economy">Economy</option>
+        <option value="3-Star">3-Star</option>
+        <option value="4-Star">4-Star</option>
+        <option value="5-Star">5-Star</option>
+        <option value="Not Decided">Not Decided</option>
+      </select>
+
+      <label for="transport">Transport Requirement</label>
+      <select id="transport" required>
+        <option value="">Select transport option</option>
+        <option value="Required">Required</option>
+        <option value="Not Required">Not Required</option>
+        <option value="Need Advice">Need Advice</option>
+      </select>
+
+      <label for="budget">Estimated Budget (PKR)</label>
+      <input id="budget" type="number" min="0"
+        placeholder="Optional — enter total budget">
+
+      <label for="extraDetails">Additional Requirements</label>
+      <textarea id="extraDetails" rows="4"
+        placeholder="Any special requests? (Optional)"></textarea>
+
+      <p><strong>Package Price:</strong> Quotation on request (PKR)</p>
+
+      <button type="submit" class="btn">
+        Send Request on WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+  <section id="services">
   <div class="section-title">
     <h2 data-en="Our Services" data-ur="ہماری سروسز">Our Services</h2>
     <p data-en="Travel assistance for your journey"
@@ -358,6 +451,40 @@ languageButton.addEventListener("click", function () {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+document.getElementById("customPackageForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("customerName").value.trim();
+  const type = document.getElementById("packageType").value;
+  const destination = document.getElementById("destination").value.trim();
+  const date = document.getElementById("travelDate").value;
+  const travelers = document.getElementById("travelers").value;
+  const hotel = document.getElementById("hotelType").value;
+  const transport = document.getElementById("transport").value;
+  const budget = document.getElementById("budget").value.trim();
+  const details = document.getElementById("extraDetails").value.trim();
+
+  const message =
+    "Assalam-o-Alaikum, OZA Travel & Tours!\n\n" +
+    "I want a customized travel package.\n\n" +
+    "Name: " + name + "\n" +
+    "Package Type: " + type + "\n" +
+    "Destination: " + destination + "\n" +
+    "Travel Date: " + date + "\n" +
+    "Number of Travelers: " + travelers + "\n" +
+    "Hotel Preference: " + hotel + "\n" +
+    "Transport: " + transport + "\n" +
+    "Estimated Budget: " + (budget ? "PKR " + budget : "Not specified") + "\n" +
+    "Additional Requirements: " + (details || "None") + "\n\n" +
+    "Please share your quotation in PKR.";
+
+  const whatsappURL =
+    "https://wa.me/923227572590?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+});
 </script>
 </body>
 </html>
