@@ -153,6 +153,80 @@ footer {
   section { padding: 42px 5%; }
   .hero { padding: 45px 6%; min-height: 420px; }
 }
+/* Custom Package Form - Responsive Styling */
+.custom-form-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+#customPackageForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#customPackageForm label {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+#customPackageForm input,
+#customPackageForm select,
+#customPackageForm textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #151515;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+#customPackageForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#customPackageForm input:focus,
+#customPackageForm select:focus,
+#customPackageForm textarea:focus {
+  outline: 2px solid #d90000;
+  outline-offset: 1px;
+}
+
+#customPackageForm button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #d90000;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#customPackageForm button:hover {
+  background: #b80000;
+}
+
+@media (max-width: 600px) {
+  .custom-form-card {
+    padding: 16px;
+  }
+
+  #customPackageForm input,
+  #customPackageForm select,
+  #customPackageForm textarea {
+    font-size: 16px;
+  }
+}
 </style>
 </head>
 
