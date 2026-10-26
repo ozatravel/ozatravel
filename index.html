@@ -269,97 +269,329 @@ footer {
   </a>
 </div>
 </section>
-<section id="packages" class="light">
-  <div class="section-title">
-    <h2>Our Travel Packages</h2>
-    <p>Choose a package or request a customized travel plan.</p>
-  </div>
-
-  <div class="services">
-    <article class="card">
-      <h3>Hajj & Umrah Packages</h3>
-      <p>Explore Umrah and Hajj travel options with hotel accommodation and transport arrangements tailored to your needs.</p>
-      <p><strong>Price:</strong> Request a Quote (PKR)</p>
-      <a class="btn"
-         href="https://wa.me/923227572590?text=Assalam-o-Alaikum%2C%20I%20want%20to%20know%20the%20price%20of%20Hajj%20or%20Umrah%20packages.">
-        Inquire on WhatsApp
-      </a>
-    </article>
-
-    <article class="card">
-      <h3>Pakistan Tour Packages</h3>
-      <p>Explore Kashmir, Naran, Kaghan, Murree and Swat with customized tour and accommodation options.</p>
-      <p><strong>Price:</strong> Request a Quote (PKR)</p>
-      <a class="btn"
-         href="https://wa.me/923227572590?text=Assalam-o-Alaikum%2C%20I%20want%20to%20know%20the%20price%20of%20Pakistan%20tour%20packages.">
-        Inquire on WhatsApp
-      </a>
-    </article>
-  </div>
-</section>
 <section id="custom-package" class="light">
   <div class="section-title">
-    <h2>Build Your Custom Package</h2>
-    <p>Tell us your travel preferences. We will prepare a package according to your needs.</p>
+    <h2>Booking & Travel Enquiry</h2>
+    <p>Select your service and share a few details. We will contact you on WhatsApp.</p>
   </div>
 
   <div class="card custom-form-card">
     <form id="customPackageForm">
 
-      <label for="customerName">Your Name</label>
-      <input id="customerName" type="text"
-        placeholder="Enter your name" required>
+      <h3>1. Select Your Service</h3>
+      <p>You can select more than one service.</p>
 
-      <label for="packageType">Package Type</label>
-      <select id="packageType" required>
-        <option value="">Select package type</option>
-        <option value="Hajj">Hajj</option>
-        <option value="Umrah">Umrah</option>
-        <option value="Pakistan Tour">Pakistan Tour</option>
-      </select>
+      <div class="service-options">
+        <label><input type="checkbox" name="service" value="Group Umrah"> Group Umrah — For Travel Agents</label>
+        <label><input type="checkbox" name="service" value="Individual Umrah"> Individual Umrah — For Everyone</label>
+        <label><input type="checkbox" name="service" value="Hotel Booking"> Hotel Booking — Makkah / Madinah</label>
+        <label><input type="checkbox" name="service" value="Transport Booking"> Transport Booking</label>
+        <label><input type="checkbox" name="service" value="Air Tickets"> Air Tickets — All Sectors</label>
+        <label><input type="checkbox" name="service" value="Pakistan Tourism"> Pakistan Tourism</label>
+      </div>
 
-      <label for="destination">Destination</label>
-      <input id="destination" type="text"
-        placeholder="e.g. Makkah, Madinah, Kashmir" required>
+      <div class="service-fields" data-service="Group Umrah" hidden>
+        <h3>2. Group Umrah — For Travel Agents</h3>
+        <label>Agency Name</label>
+        <input name="agency" type="text" placeholder="Your travel agency name">
 
-      <label for="travelDate">Preferred Travel Date</label>
-      <input id="travelDate" type="date" required>
+        <label>Agent Name</label>
+        <input name="agentName" type="text" placeholder="Your name">
 
-      <label for="travelers">Number of Travelers</label>
-      <input id="travelers" type="number"
-        min="1" max="100" value="1" required>
+        <label>Agent Contact Number</label>
+        <input name="agentPhone" type="tel" placeholder="Contact number">
 
-      <label for="hotelType">Hotel Preference</label>
-      <select id="hotelType" required>
-        <option value="">Select hotel preference</option>
-        <option value="Economy">Economy</option>
-        <option value="3-Star">3-Star</option>
-        <option value="4-Star">4-Star</option>
-        <option value="5-Star">5-Star</option>
-        <option value="Not Decided">Not Decided</option>
-      </select>
+        <label>Number of Pilgrims</label>
+        <input name="groupPilgrims" type="number" min="1" placeholder="Total pilgrims">
 
-      <label for="transport">Transport Requirement</label>
-      <select id="transport" required>
-        <option value="">Select transport option</option>
-        <option value="Required">Required</option>
-        <option value="Not Required">Not Required</option>
-        <option value="Need Advice">Need Advice</option>
-      </select>
+        <label>Departure Date</label>
+        <input name="groupDeparture" type="date">
 
-      <label for="budget">Estimated Budget (PKR)</label>
-      <input id="budget" type="number" min="0"
-        placeholder="Optional — enter total budget">
+        <label>Trip Duration</label>
+        <input name="groupDuration" type="text" placeholder="Example: 15 days">
 
-      <label for="extraDetails">Additional Requirements</label>
-      <textarea id="extraDetails" rows="4"
-        placeholder="Any special requests? (Optional)"></textarea>
+        <h4>Makkah Hotel</h4>
+        <label>Check-in Date</label>
+        <input name="groupMakkahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="groupMakkahOut" type="date">
 
-      <p><strong>Package Price:</strong> Quotation on request (PKR)</p>
+        <h4>Madinah Hotel</h4>
+        <label>Check-in Date</label>
+        <input name="groupMadinahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="groupMadinahOut" type="date">
 
-      <button type="submit" class="btn">
-        Send Request on WhatsApp
-      </button>
+        <label>Hotel Category</label>
+        <select name="groupHotel">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+        </select>
+
+        <label>Services Required</label>
+        <select name="groupServices">
+          <option value="">Select services</option>
+          <option>Complete Package</option>
+          <option>Hotels Only</option>
+          <option>Flights Only</option>
+          <option>Transport Only</option>
+          <option>Hotels and Transport</option>
+        </select>
+
+        <label>Quotation Required</label>
+        <select name="groupQuote">
+          <option value="">Select quotation type</option>
+          <option>Per Person</option>
+          <option>Full Group</option>
+        </select>
+      </div>
+
+      <div class="service-fields" data-service="Individual Umrah" hidden>
+        <h3>2. Individual Umrah — For Everyone</h3>
+
+        <label>Number of Travellers</label>
+        <input name="umrahTravellers" type="number" min="1" placeholder="Adults and children total">
+
+        <label>Departure Date</label>
+        <input name="umrahDeparture" type="date">
+
+        <label>Trip Duration</label>
+        <input name="umrahDuration" type="text" placeholder="Example: 10 or 15 days">
+
+        <h4>Makkah Hotel</h4>
+        <label>Check-in Date</label>
+        <input name="umrahMakkahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="umrahMakkahOut" type="date">
+        <label>Makkah Hotel Category</label>
+        <select name="umrahMakkahHotel">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+        </select>
+
+        <h4>Madinah Hotel</h4>
+        <label>Check-in Date</label>
+        <input name="umrahMadinahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="umrahMadinahOut" type="date">
+        <label>Madinah Hotel Category</label>
+        <select name="umrahMadinahHotel">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+        </select>
+
+        <label>Services Required</label>
+        <select name="umrahServices">
+          <option value="">Select services</option>
+          <option>Complete Umrah Package</option>
+          <option>Flights Only</option>
+          <option>Hotels Only</option>
+          <option>Transport Only</option>
+          <option>Hotels and Transport</option>
+        </select>
+      </div>
+
+      <div class="service-fields" data-service="Hotel Booking" hidden>
+        <h3>2. Hotel Booking</h3>
+
+        <label>City</label>
+        <select name="hotelCity">
+          <option value="">Select city</option>
+          <option>Makkah</option>
+          <option>Madinah</option>
+          <option>Both Makkah and Madinah</option>
+        </select>
+
+        <h4>Makkah Hotel (if required)</h4>
+        <label>Check-in Date</label>
+        <input name="hotelMakkahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="hotelMakkahOut" type="date">
+        <label>Makkah Hotel Category</label>
+        <select name="hotelMakkahType">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+        </select>
+
+        <h4>Madinah Hotel (if required)</h4>
+        <label>Check-in Date</label>
+        <input name="hotelMadinahIn" type="date">
+        <label>Check-out Date</label>
+        <input name="hotelMadinahOut" type="date">
+        <label>Madinah Hotel Category</label>
+        <select name="hotelMadinahType">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+        </select>
+
+        <label>Number of Rooms</label>
+        <input name="hotelRooms" type="number" min="1" placeholder="Number of rooms">
+
+        <label>Number of Guests</label>
+        <input name="hotelGuests" type="number" min="1" placeholder="Total guests">
+      </div>
+
+      <div class="service-fields" data-service="Transport Booking" hidden>
+        <h3>2. Transport Booking</h3>
+
+        <label>Choose Route</label>
+        <select name="transportRoute">
+          <option value="">Select route</option>
+          <option>Jeddah Airport to Makkah</option>
+          <option>Jeddah Airport to Madinah</option>
+          <option>Makkah to Madinah</option>
+          <option>Makkah to Jeddah Airport</option>
+          <option>Madinah to Jeddah Airport</option>
+          <option>Local Transport in Makkah</option>
+          <option>Local Transport in Madinah</option>
+          <option>Full Umrah Transport Package</option>
+          <option>Other Route</option>
+        </select>
+
+        <label>Pickup Date</label>
+        <input name="transportDate" type="date">
+
+        <label>Pickup Time</label>
+        <input name="transportTime" type="time">
+
+        <label>Number of Passengers</label>
+        <input name="transportPassengers" type="number" min="1" placeholder="Total passengers">
+
+        <label>Vehicle Type</label>
+        <select name="vehicleType">
+          <option value="">Select vehicle</option>
+          <option>Car</option>
+          <option>GMC / SUV</option>
+          <option>Van</option>
+          <option>Coaster</option>
+          <option>Bus</option>
+          <option>Please Recommend</option>
+        </select>
+      </div>
+
+      <div class="service-fields" data-service="Air Tickets" hidden>
+        <h3>2. Air Tickets — All Sectors</h3>
+
+        <label>Ticket Type</label>
+        <select name="ticketType">
+          <option value="">Select ticket type</option>
+          <option>Domestic</option>
+          <option>International</option>
+        </select>
+
+        <label>Journey Type</label>
+        <select name="journeyType">
+          <option value="">Select journey</option>
+          <option>One Way</option>
+          <option>Return</option>
+        </select>
+
+        <label>From</label>
+        <input name="ticketFrom" type="text" placeholder="City or airport">
+
+        <label>To</label>
+        <input name="ticketTo" type="text" placeholder="City or airport">
+
+        <label>Departure Date</label>
+        <input name="ticketDeparture" type="date">
+
+        <label>Return Date (if required)</label>
+        <input name="ticketReturn" type="date">
+
+        <label>Adults</label>
+        <input name="ticketAdults" type="number" min="1" placeholder="Number of adults">
+
+        <label>Children</label>
+        <input name="ticketChildren" type="number" min="0" placeholder="Number of children">
+      </div>
+
+      <div class="service-fields" data-service="Pakistan Tourism" hidden>
+        <h3>2. Pakistan Tourism</h3>
+
+        <label>Destination</label>
+        <select name="tourDestination">
+          <option value="">Select destination</option>
+          <option>Kashmir</option>
+          <option>Naran</option>
+          <option>Kaghan</option>
+          <option>Murree</option>
+          <option>Swat</option>
+          <option>Other / Custom Tour</option>
+        </select>
+
+        <label>Start Date</label>
+        <input name="tourStart" type="date">
+
+        <label>End Date</label>
+        <input name="tourEnd" type="date">
+
+        <label>Number of Travellers</label>
+        <input name="tourTravellers" type="number" min="1" placeholder="Total travellers">
+
+        <label>Hotel Category</label>
+        <select name="tourHotel">
+          <option value="">Select category</option>
+          <option>Economy</option>
+          <option>3-Star</option>
+          <option>4-Star</option>
+          <option>5-Star</option>
+          <option>Not Decided</option>
+        </select>
+
+        <label>Transport Required?</label>
+        <select name="tourTransport">
+          <option value="">Please select</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+
+        <label>Tour Guide Required?</label>
+        <select name="tourGuide">
+          <option value="">Please select</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <hr>
+
+      <h3>Your Contact Details</h3>
+
+      <label>Full Name *</label>
+      <input name="customerName" type="text" required placeholder="Enter your full name">
+
+      <label>WhatsApp Number *</label>
+      <input name="customerPhone" type="tel" required placeholder="Enter your WhatsApp number">
+
+      <label>Email (Optional)</label>
+      <input name="customerEmail" type="email" placeholder="Your email address">
+
+      <label>Budget (PKR)</label>
+      <input name="customerBudget" type="number" min="0" placeholder="Your estimated budget">
+
+      <label>Additional Requirements (Optional)</label>
+      <textarea name="customerDetails" rows="4" placeholder="Any special requests?"></textarea>
+
+      <p><strong>Price:</strong> Quotation on Request (PKR)</p>
+
+      <button type="submit">Send Booking Request on WhatsApp</button>
+      <p class="form-note">Your request will open in WhatsApp for you to review and send.</p>
+
     </form>
   </div>
 </section>
