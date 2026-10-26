@@ -756,38 +756,145 @@ languageButton.addEventListener("click", function () {
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 <script>
-document.getElementById("customPackageForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+const bookingForm = document.getElementById("customPackageForm");
 
-  const name = document.getElementById("customerName").value.trim();
-  const type = document.getElementById("packageType").value;
-  const destination = document.getElementById("destination").value.trim();
-  const date = document.getElementById("travelDate").value;
-  const travelers = document.getElementById("travelers").value;
-  const hotel = document.getElementById("hotelType").value;
-  const transport = document.getElementById("transport").value;
-  const budget = document.getElementById("budget").value.trim();
-  const details = document.getElementById("extraDetails").value.trim();
+if (bookingForm) {
+  const checks = bookingForm.querySelectorAll('input[name="service"]');
+  const sections = bookingForm.querySelectorAll(".service-fields");
 
-  const message =
-    "Assalam-o-Alaikum, OZA Travel & Tours!\n\n" +
-    "I want a customized travel package.\n\n" +
-    "Name: " + name + "\n" +
-    "Package Type: " + type + "\n" +
-    "Destination: " + destination + "\n" +
-    "Travel Date: " + date + "\n" +
-    "Number of Travelers: " + travelers + "\n" +
-    "Hotel Preference: " + hotel + "\n" +
-    "Transport: " + transport + "\n" +
-    "Estimated Budget: " + (budget ? "PKR " + budget : "Not specified") + "\n" +
-    "Additional Requirements: " + (details || "None") + "\n\n" +
-    "Please share your quotation in PKR.";
+  function updateSections() {
+    sections.forEach(section => {
+      const check = [...checks].find(
+        item => item.value === section.dataset.service
+      );
+      const active = check && check.checked;
 
-  const whatsappURL =
-    "https://wa.me/923227572590?text=" + encodeURIComponent(message);
+      section.hidden = !active;
+      section.querySelectorAll("input, select, textarea").forEach(field => {
+        field.disabled = !active;
+      });
+    });
+  }
 
-  window.open(whatsappURL, "_blank");
-});
+  checks.forEach(check => check.addEventListener("change", updateSections));
+  updateSections();
+
+  bookingForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const selected = [...checks]
+      .filter(check => check.checked)
+      .map(check => check.value);
+
+    if (!selected.length) {
+      alert("Please select at least one service.");
+      return;
+    }
+
+    const name = bookingForm.elements.customerName.value.trim();
+
+    if (!name) {
+      alert("Please enter your full name.");
+      bookingForm.elements.customerName.focus();
+      return;
+    }
+
+    const labels = {
+      agency: "Agency Name",
+      agentName: "Agent Name",
+      agentPhone: "Agent Contact",
+      groupPilgrims: "Number of Pilgrims",
+      groupDeparture: "Departure Date",
+      groupDuration: "Trip Duration",
+      groupMakkahIn: "Makkah Check-in",
+      groupMakkahOut: "Makkah Check-out",
+      groupMakkahHotel: "Makkah Hotel Category",
+      groupMadinahIn: "Madinah Check-in",
+      groupMadinahOut: "Madinah Check-out",
+      groupMadinahHotel: "Madinah Hotel Category",
+      groupServices: "Services Required",
+      groupQuote: "Quotation Type",
+      umrahTravellers: "Number of Travellers",
+      umrahDeparture: "Departure Date",
+      umrahDuration: "Trip Duration",
+      umrahMakkahIn: "Makkah Check-in",
+      umrahMakkahOut: "Makkah Check-out",
+      umrahMakkahHotel: "Makkah Hotel Category",
+      umrahMadinahIn: "Madinah Check-in",
+      umrahMadinahOut: "Madinah Check-out",
+      umrahMadinahHotel: "Madinah Hotel Category",
+      umrahServices: "Services Required",
+      hotelCity: "Hotel City",
+      hotelMakkahIn: "Makkah Check-in",
+      hotelMakkahOut: "Makkah Check-out",
+      hotelMakkahType: "Makkah Hotel Category",
+      hotelMadinahIn: "Madinah Check-in",
+      hotelMadinahOut: "Madinah Check-out",
+      hotelMadinahType: "Madinah Hotel Category",
+      hotelRooms: "Number of Rooms",
+      hotelGuests: "Number of Guests",
+      transportRoute: "Transport Route",
+      transportOtherRoute: "Other Route",
+      transportDate: "Pickup Date",
+      transportTime: "Pickup Time",
+      transportPassengers: "Passengers",
+      vehicleType: "Vehicle Type",
+      ticketType: "Ticket Type",
+      journeyType: "Journey Type",
+      ticketFrom: "From",
+      ticketTo: "To",
+      ticketDeparture: "Departure Date",
+      ticketReturn: "Return Date",
+      ticketAdults: "Adults",
+      ticketChildren: "Children",
+      tourDestination: "Destination",
+      tourStart: "Tour Start Date",
+      tourEnd: "Tour End Date",
+      tourTravellers: "Travellers",
+      tourHotel: "Hotel Category",
+      tourTransport: "Transport Required",
+      tourGuide: "Tour Guide Required",
+      customerBudget: "Budget (PKR)",
+      customerDetails: "Additional Requirements"
+    };
+
+    const lines = [
+      "Assalam-o-Alaikum, OZA Travel & Tours (PVT) LTD",
+      "",
+      "Booking Request",
+      "Customer Name: " + name,
+      "Selected Services: " + selected.join(", ")
+    ];
+
+    selected.forEach(service => {
+      const section = [...sections].find(
+        item => item.dataset.service === service
+      );
+      if (!section) return;
+
+      lines.push("", "--- " + service + " ---");
+
+      section.querySelectorAll("input, select, textarea").forEach(field => {
+        if (field.disabled || !field.name || !field.value.trim()) return;
+        lines.push((labels[field.name] || field.name) + ": " + field.value.trim());
+      });
+    });
+
+    ["customerBudget", "customerDetails"].forEach(key => {
+      const field = bookingForm.elements[key];
+      if (field && field.value.trim()) {
+        lines.push(labels[key] + ": " + field.value.trim());
+      }
+    });
+
+    lines.push("", "Price: Quotation on Request (PKR)");
+
+    const url = "https://wa.me/923227572590?text=" +
+      encodeURIComponent(lines.join("\n"));
+
+    window.open(url, "_blank");
+  });
+}
 </script>
 </body>
 </html>
